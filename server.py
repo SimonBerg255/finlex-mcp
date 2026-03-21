@@ -15,7 +15,6 @@ import os
 
 from dotenv import load_dotenv
 from fastmcp import FastMCP
-from fastmcp.server.auth.providers.jwt import JWTVerifier
 from mcp.server.fastmcp import Icon
 from starlette.middleware import Middleware
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -31,15 +30,6 @@ from tools_finlex import (
     get_statute_text,
     search_case_law,
     search_statutes,
-)
-
-####### API KEY #######
-
-verifier = JWTVerifier(
-    public_key=os.getenv("MCP_SERVER_JWT_SECRET"),
-    issuer=os.getenv("MCP_SERVER_JWT_ISSUER", ""),
-    audience=os.getenv("MCP_SERVER_JWT_AUDIENCE", ""),
-    algorithm="HS256",
 )
 
 ####### CUSTOM MIDDLEWARE #######
@@ -103,7 +93,6 @@ mcp = FastMCP(
     version=VERSION,
     website_url=WEBSITE_URL,
     icons=[icon],
-    auth=verifier,
 )
 
 ####### TOOLS #######
