@@ -58,7 +58,7 @@ middleware = [Middleware(IPAllowlistMiddleware, allowed_ips=ALLOWED_IPS)]
 ####### SERVER METADATA #######
 
 icon = Icon(
-    src="/icon.png",
+    src="https://raw.githubusercontent.com/SimonBerg255/finlex-mcp/main/icon.png",
 )
 
 INSTRUCTION_STRING = """Olet yhteydessä Finlexiin – Suomen oikeudelliseen tietopankkiin, jota ylläpitää oikeusministeriö.
